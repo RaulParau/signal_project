@@ -52,6 +52,7 @@ public class Patient {
      *         range
      */
     public List<PatientRecord> getRecords(long startTime, long endTime) {
-        // TODO Implement and test this method
+        ArrayList<PatientRecord> records = new ArrayList<>();
+        return records;
     }
 }
