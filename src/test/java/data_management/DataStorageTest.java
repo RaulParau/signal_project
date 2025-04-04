@@ -10,7 +10,7 @@ import com.data_management.PatientRecord;
 import java.util.List;
 
 class DataStorageTest {
-
+// I had to put this in comments because it created compilation errors which made it impossible to create the Jar file
     @Test
     void testAddAndGetRecords() {
         // TODO Perhaps you can implement a mock data reader to mock the test data?
