@@ -51,6 +51,7 @@ public class Patient {
      * @return a list of PatientRecord objects that fall within the specified time
      *         range
      */
+    //I had to modify this method in order to create my jar file as it caused compilation errors
     public List<PatientRecord> getRecords(long startTime, long endTime) {
         ArrayList<PatientRecord> records = new ArrayList<>();
         return records;
