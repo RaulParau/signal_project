@@ -9,8 +9,8 @@ public interface OutputStrategy {
      * Outputs the generated data for a patient
      *
      * @param patientId The patients patient ID
-     * @param timestamp Moment when the data point was generated
-     * @param label L
+     * @param timestamp Moment in time when the data was generated
+     * @param label A label of the data, describing the type of data
      * @param data The generated data
      */
     void output(int patientId, long timestamp, String label, String data);
