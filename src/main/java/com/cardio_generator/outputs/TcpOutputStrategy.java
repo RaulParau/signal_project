@@ -30,6 +30,7 @@ public class TcpOutputStrategy implements OutputStrategy {
 
     /**
      * Creates a TcpOutputStrategy object that starts the TCP server on a specified port
+     *
      * @param port port on that the TCP server is started
      */
     public TcpOutputStrategy(int port) {
