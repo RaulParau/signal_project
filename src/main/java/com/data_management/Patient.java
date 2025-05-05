@@ -53,7 +53,17 @@ public class Patient {
      */
     //I had to modify this method in order to create my jar file as it caused compilation errors
     public List<PatientRecord> getRecords(long startTime, long endTime) {
-        ArrayList<PatientRecord> records = new ArrayList<>();
+        List<PatientRecord> records = new ArrayList<>();
+        for (PatientRecord record : patientRecords) {
+            // Check if the record's timestamp falls within the specified range
+            if (record.getTimestamp() >= startTime && record.getTimestamp() <= endTime) {
+                records.add(record);
+            }
+        }
         return records;
+    }
+
+    public int getPatientId(){
+        return patientId;
     }
 }
