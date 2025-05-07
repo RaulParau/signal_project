@@ -1,13 +1,27 @@
 package com.alerts;
 
-import com.data_management.DataStorage;
-import com.data_management.Patient;
+
 import com.data_management.PatientRecord;
 
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class implements the alert that is triggered when the blood pressure reaches a critical value and implements
+ * the AlertCondition  interface.
+ */
+
 public class BloodPressureCriticalAlert implements AlertCondition {
+
+    /**
+     * This method checks if the condition to trigger the alert is matched. The input is a list of PatientRecords. Each
+     * of these patient records is evaluated. First the value and measurementValue are retrieved. Then the systolic and
+     * diastolic blood pressure are checked and an alert is triggered when the critical value is reached.
+     *
+     * @param patientRecords is a list of patient records.
+     *
+     * @return an alert if the conditions are met, null otherwise.
+     */
+
     @Override
     public Alert checkCondition(List<PatientRecord> patientRecords) {
         for (PatientRecord record : patientRecords) {
