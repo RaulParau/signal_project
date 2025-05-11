@@ -7,13 +7,21 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+/**
+ * This class implements AlertCondition and checks if the condition for an alert regarding a hypotensive hypoxemia are
+ * met
+ */
 
     public class HypotensiveHypoxemiaAlert implements AlertCondition{
 
         private final long TIME_INTERVAL = 1000;
 
-        @Override
+    /**
+     *
+      * @param patientRecord
+     * @return
+     */
+    @Override
         public Alert checkCondition(List<PatientRecord> patientRecord) {
             for(PatientRecord record: patientRecord){
                 if(record.getRecordType().equals("SystolicPressure") && record.getMeasurementValue() < 90){
