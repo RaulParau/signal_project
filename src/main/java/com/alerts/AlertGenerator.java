@@ -50,11 +50,25 @@ public class AlertGenerator {
                 1L,
                 System.currentTimeMillis()
         );
+        boolean bloodPressureAlertTriggered = false;
 
-        for(AlertCondition condition : alertConditions){
+        // Loop through all alert conditions
+        for (AlertCondition condition : alertConditions) {
             Alert alert = condition.checkCondition(records);
-            if(alert != null){
+            if (alert != null) {
+                // Check if the blood pressure alert was triggered
+                if (alert.getAlertType() == AlertType.BLOOD_PRESSURE_CRITICAL) {
+                    bloodPressureAlertTriggered = true;
+                }
                 triggerAlert(alert);
+            }
+        }
+
+        // If blood pressure alert was triggered, check for Hypotensive Hypoxemia
+        if (bloodPressureAlertTriggered) {
+            Alert hypotensiveAlert = new HypotensiveHypoxemiaAlert().checkCondition(records);
+            if (hypotensiveAlert != null) {
+                triggerAlert(hypotensiveAlert);
             }
         }
     }
