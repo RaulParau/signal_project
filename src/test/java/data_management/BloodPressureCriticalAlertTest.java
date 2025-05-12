@@ -4,6 +4,7 @@ import com.alerts.Alert;
 import com.alerts.BloodPressureCriticalAlert;
 import com.data_management.Patient;
 import com.data_management.PatientRecord;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -27,8 +28,8 @@ public class BloodPressureCriticalAlertTest {
 
         Alert alert = alertCondition.checkCondition(records);
 
-        assertNotNull(alert);
-        assertEquals("Systolic blood pressure too high", alert.getCondition());
+        Assertions.assertNotNull(alert);
+        Assertions.assertEquals("Systolic blood pressure too high", alert.getCondition());
 
     }
 
@@ -39,8 +40,8 @@ public class BloodPressureCriticalAlertTest {
 
         Alert alert = alertCondition.checkCondition(records);
 
-        assertNotNull(alert);
-        assertEquals("Diastolic blood pressure too high", alert.getCondition());
+        Assertions.assertNotNull(alert);
+        Assertions.assertEquals("Diastolic blood pressure too high", alert.getCondition());
 
     }
 
@@ -51,8 +52,8 @@ public class BloodPressureCriticalAlertTest {
 
         Alert alert = alertCondition.checkCondition(records);
 
-        assertNotNull(alert);
-        assertEquals("Diastolic blood pressure too low", alert.getCondition());
+        Assertions.assertNotNull(alert);
+        Assertions.assertEquals("Diastolic blood pressure too low", alert.getCondition());
 
     }
 
@@ -63,8 +64,8 @@ public class BloodPressureCriticalAlertTest {
 
         Alert alert = alertCondition.checkCondition(records);
 
-        assertNotNull(alert);
-        assertEquals("Systolic blood pressure too low", alert.getCondition());
+        Assertions.assertNotNull(alert);
+        Assertions.assertEquals("Systolic blood pressure too low", alert.getCondition());
 
     }
 
@@ -77,7 +78,7 @@ public class BloodPressureCriticalAlertTest {
 
         Alert alert = alertCondition.checkCondition(records);
 
-        assertNull(alert);
+        Assertions.assertNull(alert);
 
     }
 }
