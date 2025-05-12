@@ -3,6 +3,8 @@ package data_management;
 import com.alerts.Alert;
 import com.alerts.BloodPressureCriticalAlert;
 import com.data_management.PatientRecord;
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,10 +15,12 @@ public class BloodSaturationCriticalAlertTest {
 
     private BloodPressureCriticalAlert alertCondition;
 
+    @BeforeEach
     public void setUp(){
         alertCondition = new BloodPressureCriticalAlert();
     }
 
+   @Test
     public void testCriticalBloodSaturation(){
         PatientRecord saturationRecord = new PatientRecord(1, 90, "Saturation", 100L);
         List<PatientRecord> records = List.of(saturationRecord);
@@ -28,6 +32,7 @@ public class BloodSaturationCriticalAlertTest {
 
     }
 
+    @Test
     public void testHealthyBloodSaturation(){
         PatientRecord saturationRecord = new PatientRecord(1, 100, "Saturation", 100L);
 
