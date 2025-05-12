@@ -37,26 +37,26 @@ public class BloodPressureTrendAlert implements AlertCondition{
                 .collect(Collectors.toList());
 
         if(checkTrend(systolic, true)){
-            Alert alert = new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
+            return new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Systolic blood pressure trend increases too quick",
                     patientRecord.get(systolic.size()-1).getTimestamp(),
                     AlertType.BLOOD_PRESSURE_TREND);
         }
         else if(checkTrend(systolic, false)){
-            Alert alert = new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
+            return new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Systolic blood pressure trend decreases too quick",
                     patientRecord.get(systolic.size()-1).getTimestamp(),
                     AlertType.BLOOD_PRESSURE_TREND);
         }
 
         if(checkTrend(diastolic, true)){
-            Alert alert = new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
+            return new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Diastolic blood pressure trend increases too quick",
                     patientRecord.get(systolic.size()-1).getTimestamp(),
                     AlertType.BLOOD_PRESSURE_TREND);
         }
         else if(checkTrend(diastolic, false)){
-            Alert alert = new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
+            return new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Diastolic blood pressure trend decreases too quick",
                     patientRecord.get(systolic.size()-1).getTimestamp(),
                     AlertType.BLOOD_PRESSURE_TREND);
