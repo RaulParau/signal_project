@@ -3,13 +3,13 @@ package data_management;
 import com.alerts.Alert;
 import com.alerts.BloodPressureCriticalAlert;
 import com.data_management.PatientRecord;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
 
 public class BloodSaturationCriticalAlertTest {
 
@@ -27,8 +27,8 @@ public class BloodSaturationCriticalAlertTest {
 
         Alert alert = alertCondition.checkCondition(records);
 
-        assertNotNull(alert);
-        assertEquals("Saturation too low", alert.getCondition());
+        Assertions.assertNotNull(alert);
+        Assertions.assertEquals("Saturation too low", alert.getCondition());
 
     }
 
@@ -40,7 +40,7 @@ public class BloodSaturationCriticalAlertTest {
 
         Alert alert = alertCondition.checkCondition(records);
 
-        assertNull(alert);
+        Assertions.assertNull(alert);
 
     }
 }

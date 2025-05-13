@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.alerts.AlertType.BLOOD_PRESSURE_TREND;
-import static org.junit.Assert.*;
 
 public class BloodPressureTrendAlertTest {
     private BloodPressureTrendAlert alertCondition;
