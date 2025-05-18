@@ -20,11 +20,9 @@ public class BloodSaturationCriticalAlert implements AlertCondition{
     @Override
     public Alert checkCondition(List<PatientRecord> patientRecord) {
         for (PatientRecord record : patientRecord) {
-            double value = record.getMeasurementValue();
-            String type = record.getRecordType();
 
-            if ("Saturation".equals(type)) {
-                if (value < 92) {
+            if (record.getRecordType().equals("Saturation")) {
+                if (record.getMeasurementValue() < 92) {
                     return new Alert(
                             Integer.toString(record.getPatientId()),
                             "Saturation too low",

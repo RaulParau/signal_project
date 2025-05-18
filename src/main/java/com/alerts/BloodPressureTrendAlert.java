@@ -52,13 +52,13 @@ public class BloodPressureTrendAlert implements AlertCondition{
         if(checkTrend(diastolic, true)){
             return new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Diastolic blood pressure trend increases too quick",
-                    patientRecord.get(systolic.size()-1).getTimestamp(),
+                    patientRecord.get(diastolic.size()-1).getTimestamp(),
                     AlertType.BLOOD_PRESSURE_TREND);
         }
         else if(checkTrend(diastolic, false)){
             return new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Diastolic blood pressure trend decreases too quick",
-                    patientRecord.get(systolic.size()-1).getTimestamp(),
+                    patientRecord.get(diastolic.size()-1).getTimestamp(),
                     AlertType.BLOOD_PRESSURE_TREND);
         }
 
@@ -76,7 +76,8 @@ public class BloodPressureTrendAlert implements AlertCondition{
      * @return true if the condition is met, false otherwise.
      */
     public boolean checkTrend(List<PatientRecord> patientRecord, boolean increasing){
-        for(int i = 0; i < patientRecord.size() - WINDOW_SIZE; i++){
+        if(patientRecord.size() < WINDOW_SIZE) return false;
+        for(int i = 0; i < patientRecord.size() - WINDOW_SIZE + 1; i++){
             double a = patientRecord.get(i).getMeasurementValue();
             double b = patientRecord.get(i + 1).getMeasurementValue();
             double c = patientRecord.get(i + 2).getMeasurementValue();

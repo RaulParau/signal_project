@@ -1,7 +1,6 @@
-package data_management;
+package alerts;
 
 import com.alerts.Alert;
-import com.alerts.AlertCondition;
 import com.alerts.BloodPressureTrendAlert;
 import com.data_management.PatientRecord;
 import org.junit.jupiter.api.Assertions;
@@ -31,7 +30,7 @@ public class BloodPressureTrendAlertTest {
         Alert alert = alertCondition.checkCondition(records);
         Assertions.assertNotNull(alert);
         Assertions.assertEquals(BLOOD_PRESSURE_TREND, alert.getAlertType());
-        Assertions.assertEquals("Systolic blood pressure trend increase too quick", alert.getCondition());
+        Assertions.assertEquals("Systolic blood pressure trend increases too quick", alert.getCondition());
     }
 
     @Test

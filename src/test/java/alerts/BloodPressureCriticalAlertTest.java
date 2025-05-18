@@ -1,8 +1,7 @@
-package data_management;
+package alerts;
 
 import com.alerts.Alert;
 import com.alerts.BloodPressureCriticalAlert;
-import com.data_management.Patient;
 import com.data_management.PatientRecord;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

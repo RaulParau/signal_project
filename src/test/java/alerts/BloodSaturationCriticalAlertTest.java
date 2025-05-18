@@ -1,29 +1,31 @@
-package data_management;
+package alerts;
 
 import com.alerts.Alert;
-import com.alerts.BloodPressureCriticalAlert;
+import com.alerts.BloodSaturationCriticalAlert;
 import com.data_management.PatientRecord;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class BloodSaturationCriticalAlertTest {
 
-    private BloodPressureCriticalAlert alertCondition;
+    private BloodSaturationCriticalAlert alertCondition;
 
     @BeforeEach
     public void setUp(){
-        alertCondition = new BloodPressureCriticalAlert();
+        alertCondition = new BloodSaturationCriticalAlert();
     }
 
    @Test
     public void testCriticalBloodSaturation(){
-        PatientRecord saturationRecord = new PatientRecord(1, 90, "Saturation", 100L);
-        List<PatientRecord> records = List.of(saturationRecord);
+        PatientRecord saturationRecord = new PatientRecord(1, 80, "Saturation", 100);
+
+        List<PatientRecord> records = new ArrayList<>();
+        records.add(saturationRecord);
 
         Alert alert = alertCondition.checkCondition(records);
 
