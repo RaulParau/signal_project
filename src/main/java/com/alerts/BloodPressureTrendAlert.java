@@ -12,7 +12,10 @@ import java.util.stream.Collectors;
  */
 public class BloodPressureTrendAlert implements AlertCondition{
 
+    /** This determines the window size */
     private static final int WINDOW_SIZE = 3;
+
+    /** this is the threshold for triggering the alert*/
     private static final double THRESHOLD = 10;
 
     /**

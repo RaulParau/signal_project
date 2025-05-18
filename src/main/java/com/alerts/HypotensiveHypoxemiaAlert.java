@@ -17,9 +17,13 @@ import java.util.stream.Collectors;
         private final long TIME_INTERVAL = 1000;
 
     /**
+     * This method first checks if the record we are looking at is of type "SystolicPressure" and then evaluates if the
+     * pressure is in a critical state (below 90). Then it calls the helper method matchingRecords, to check if there are
+     * other records, showing that there is a reading of low blood saturation within a timeframe of 1 second. If at least
+     * one matching record is found, a Hypotensive Hypoxemia alert is triggered.
      *
-      * @param patientRecord
-     * @return
+      * @param patientRecord is a list of patient records.
+     * @return Hypotensive Hypoxemia alert if the conditions are met, null otherwise
      */
     @Override
         public Alert checkCondition(List<PatientRecord> patientRecord) {
@@ -42,7 +46,18 @@ import java.util.stream.Collectors;
             return null;
         }
 
-        public List<PatientRecord> matchingRecords(long timestamp, List<PatientRecord> patientRecord){
+    /**
+     * This method is a helper method to check if there are records showing that the blood saturation was in a critical
+     * state around the same timestamp that the blood pressure was critical. It looks for such records by filtering for
+     * records within 1 second of the timestamp of the record showing critical blood pressure.
+     *
+     * @param timestamp is the timestamp of the record showing critical blood pressure
+     * @param patientRecord is a list of all the patient records.
+     *
+     * @return a list of patient records, with low blood saturation at the time of the record showing critical blood
+     * pressure
+     */
+    public List<PatientRecord> matchingRecords(long timestamp, List<PatientRecord> patientRecord){
 
             List<PatientRecord> matchingRecords = new ArrayList<>();
 

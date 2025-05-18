@@ -6,9 +6,25 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Implements an alert condition that triggers when the patients blood oxygen saturation drops by a threshold of 5 within
+ * a fixed time period
+ */
 public class SaturationTrendAlert implements AlertCondition{
+    /** The threshold value for detecting the rapid drop */
     private final static double THRESHOLD = 5;
+
+    /** The time interval within that the drop has to occur (in milliseconds) */
     private final static long TIME_DIFFERENCE = 600_000;
+
+    /**
+     * This is the method checking if the drop occurred. The method filters the record so that only those are included
+     * that correspond to the record type "Saturation". The records are then sorted in chronological order and compared to
+     * see if a drop greater than the threshold appeared.
+     *
+     *  @param patientRecord is a list of all the patient records
+     * @return a Blood Saturation trend critical alert if the conditions are met, null otherwise.
+     */
     @Override
     public Alert checkCondition(List<PatientRecord> patientRecord) {
 
