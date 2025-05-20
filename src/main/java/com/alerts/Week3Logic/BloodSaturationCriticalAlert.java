@@ -1,6 +1,8 @@
 package com.alerts.Week3Logic;
 
 import com.alerts.Alert;
+import com.alerts.Factory.AlertFactory;
+import com.alerts.Factory.BloodSaturationCriticalAlertFactory;
 import com.data_management.PatientRecord;
 
 import java.util.List;
@@ -24,12 +26,10 @@ public class BloodSaturationCriticalAlert implements AlertCondition {
 
             if (record.getRecordType().equals("Saturation")) {
                 if (record.getMeasurementValue() < 92) {
-                    return new Alert(
-                            Integer.toString(record.getPatientId()),
+                    AlertFactory factory = new BloodSaturationCriticalAlertFactory();
+                    return factory.createAlert(Integer.toString(record.getPatientId()),
                             "Saturation too low",
-                            record.getTimestamp(),
-                            AlertType.OXYGEN_SATURATION_LOW
-                    );
+                            record.getTimestamp());
                 }
             }
         }

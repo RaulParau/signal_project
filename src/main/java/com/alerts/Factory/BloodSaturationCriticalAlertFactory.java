@@ -4,7 +4,7 @@ import com.alerts.Alert;
 
 import static com.alerts.Week3Logic.AlertType.OXYGEN_SATURATION_LOW;
 
-public class BloodOxygenAlertFactory extends AlertFactory{
+public class BloodSaturationCriticalAlertFactory extends AlertFactory{
 
     @Override
     public Alert createAlert(String patientId, String condition, long timestamp) {

@@ -1,6 +1,8 @@
 package com.alerts.Week3Logic;
 
 import com.alerts.Alert;
+import com.alerts.Factory.AlertFactory;
+import com.alerts.Factory.SaturationTrendAlertFactory;
 import com.data_management.PatientRecord;
 
 import java.util.Comparator;
@@ -45,11 +47,10 @@ public class SaturationTrendAlert implements AlertCondition {
                double drop = saturation.get(i).getMeasurementValue() - saturation.get(j).getMeasurementValue();
 
                if(drop > THRESHOLD){
-                   return new Alert(Integer.toString(saturation.get(i).getPatientId()),
+                   AlertFactory factory = new SaturationTrendAlertFactory();
+                   return factory.createAlert(Integer.toString(saturation.get(i).getPatientId()),
                            "Saturation drops too quick",
-                           saturation.get(i+j).getTimestamp(),
-                           AlertType.OXYGEN_SATURATION_RAPID_DROP
-                   );
+                           saturation.get(i+j).getTimestamp());
                }
            }
         }
