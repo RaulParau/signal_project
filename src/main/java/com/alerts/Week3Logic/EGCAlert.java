@@ -1,6 +1,8 @@
 package com.alerts.Week3Logic;
 
 import com.alerts.Alert;
+import com.alerts.Factory.AlertFactory;
+import com.alerts.Factory.ECGAlertFactory;
 import com.data_management.PatientRecord;
 
 import java.util.LinkedList;
@@ -44,12 +46,10 @@ public class EGCAlert implements AlertCondition {
                                 .orElse(0.0);
 
                 if(average > 0 && value > THRESHOLD * average){
-                    return new Alert(
-                            Integer.toString(record.getPatientId()),
+                    AlertFactory factory = new ECGAlertFactory();
+                    factory.createAlert(Integer.toString(record.getPatientId()),
                             "Abnormal ECG Data",
-                            record.getTimestamp(),
-                            AlertType.ECG_ABNORMALITY
-                    );
+                            record.getTimestamp());
                 }
 
             }
