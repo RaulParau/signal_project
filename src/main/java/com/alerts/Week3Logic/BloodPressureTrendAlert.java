@@ -1,5 +1,6 @@
-package com.alerts;
+package com.alerts.Week3Logic;
 
+import com.alerts.Alert;
 import com.data_management.PatientRecord;
 
 import java.util.Comparator;
@@ -10,7 +11,7 @@ import java.util.stream.Collectors;
  * This class implements AlertConddition and checks if the condition for an alert regarding a critical Blood presure
  * trend is met.
  */
-public class BloodPressureTrendAlert implements AlertCondition{
+public class BloodPressureTrendAlert implements AlertCondition {
 
     /** This determines the window size */
     private static final int WINDOW_SIZE = 3;

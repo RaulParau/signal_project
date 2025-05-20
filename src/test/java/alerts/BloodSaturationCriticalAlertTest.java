@@ -1,7 +1,7 @@
 package alerts;
 
 import com.alerts.Alert;
-import com.alerts.BloodSaturationCriticalAlert;
+import com.alerts.Week3Logic.BloodSaturationCriticalAlert;
 import com.data_management.PatientRecord;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

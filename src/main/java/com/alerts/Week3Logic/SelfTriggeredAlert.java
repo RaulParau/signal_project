@@ -1,5 +1,6 @@
-package com.alerts;
+package com.alerts.Week3Logic;
 
+import com.alerts.Alert;
 import com.data_management.PatientRecord;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 /**
  * Implements the alert condition that an alert has been triggered by hand.
  */
-public class SelfTriggeredAlert implements AlertCondition{
+public class SelfTriggeredAlert implements AlertCondition {
 
     /**
      * This method implements the logic for a self triggered alert. It filters for records that match the alert condition

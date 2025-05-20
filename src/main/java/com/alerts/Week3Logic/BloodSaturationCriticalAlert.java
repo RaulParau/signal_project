@@ -1,5 +1,6 @@
-package com.alerts;
+package com.alerts.Week3Logic;
 
+import com.alerts.Alert;
 import com.data_management.PatientRecord;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
  * This class implements AlertConddition and checks if the condition for an alert regarding a critical Blood Saturation
  * is met.
  */
-public class BloodSaturationCriticalAlert implements AlertCondition{
+public class BloodSaturationCriticalAlert implements AlertCondition {
 
     /**
      * This method checks if the condition for a low blood pressure alert is met. If the blood saturation drops under a

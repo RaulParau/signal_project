@@ -1,5 +1,8 @@
 package com.alerts;
 
+import com.alerts.Week3Logic.AlertCondition;
+import com.alerts.Week3Logic.AlertType;
+import com.alerts.Week3Logic.HypotensiveHypoxemiaAlert;
 import com.data_management.DataStorage;
 import com.data_management.Patient;
 import com.data_management.PatientRecord;

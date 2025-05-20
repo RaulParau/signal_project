@@ -1,5 +1,6 @@
-package com.alerts;
+package com.alerts.Week3Logic;
 
+import com.alerts.Alert;
 import com.data_management.PatientRecord;
 
 import java.util.LinkedList;
@@ -9,7 +10,7 @@ import java.util.List;
  * This class implements the EGC alert, which is triggered when peaks above a threshold happens with respect to the last
  * 10 readings.
  */
-public class EGCAlert implements AlertCondition{
+public class EGCAlert implements AlertCondition {
 
     private final int WINDOW_SIZE = 10;
     private final double THRESHOLD = 1.5; //This is just an approximation of what the threshold could be

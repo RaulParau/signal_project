@@ -1,7 +1,7 @@
 package alerts;
 
 import com.alerts.Alert;
-import com.alerts.BloodPressureTrendAlert;
+import com.alerts.Week3Logic.BloodPressureTrendAlert;
 import com.data_management.PatientRecord;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.alerts.AlertType.BLOOD_PRESSURE_TREND;
+import static com.alerts.Week3Logic.AlertType.BLOOD_PRESSURE_TREND;
 
 public class BloodPressureTrendAlertTest {
     private BloodPressureTrendAlert alertCondition;

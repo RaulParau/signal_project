@@ -1,6 +1,6 @@
-package com.alerts;
+package com.alerts.Week3Logic;
 
-import com.data_management.Patient;
+import com.alerts.Alert;
 import com.data_management.PatientRecord;
 
 import java.util.List;

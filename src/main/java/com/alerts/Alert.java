@@ -1,5 +1,7 @@
 package com.alerts;
 
+import com.alerts.Week3Logic.AlertType;
+
 // Represents an alert
 public class Alert {
     private String patientId;

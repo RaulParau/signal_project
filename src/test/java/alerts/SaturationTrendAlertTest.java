@@ -1,7 +1,7 @@
 package alerts;
 
 import com.alerts.Alert;
-import com.alerts.SaturationTrendAlert;
+import com.alerts.Week3Logic.SaturationTrendAlert;
 import com.data_management.PatientRecord;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Assertions;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.alerts.AlertType.OXYGEN_SATURATION_RAPID_DROP;
+import static com.alerts.Week3Logic.AlertType.OXYGEN_SATURATION_RAPID_DROP;
 
 public class SaturationTrendAlertTest {
     private SaturationTrendAlert alertCondition;

@@ -1,9 +1,9 @@
 package alerts;
 
 import com.alerts.Alert;
-import com.alerts.AlertCondition;
+import com.alerts.Week3Logic.AlertCondition;
 import com.alerts.AlertGenerator;
-import com.alerts.AlertType;
+import com.alerts.Week3Logic.AlertType;
 import com.data_management.DataStorage;
 import com.data_management.Patient;
 import com.data_management.PatientRecord;

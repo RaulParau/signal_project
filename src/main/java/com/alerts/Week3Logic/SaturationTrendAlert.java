@@ -1,5 +1,6 @@
-package com.alerts;
+package com.alerts.Week3Logic;
 
+import com.alerts.Alert;
 import com.data_management.PatientRecord;
 
 import java.util.Comparator;
@@ -10,7 +11,7 @@ import java.util.stream.Collectors;
  * Implements an alert condition that triggers when the patients blood oxygen saturation drops by a threshold of 5 within
  * a fixed time period
  */
-public class SaturationTrendAlert implements AlertCondition{
+public class SaturationTrendAlert implements AlertCondition {
     /** The threshold value for detecting the rapid drop */
     private final static double THRESHOLD = 5;
 
