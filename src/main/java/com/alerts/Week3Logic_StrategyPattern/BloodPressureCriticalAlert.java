@@ -1,4 +1,4 @@
-package com.alerts.Week3Logic;
+package com.alerts.Week3Logic_StrategyPattern;
 
 
 import com.alerts.Alert;

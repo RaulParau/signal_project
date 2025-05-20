@@ -1,7 +1,7 @@
 package alerts;
 
 import com.alerts.Alert;
-import com.alerts.Week3Logic.BloodPressureCriticalAlert;
+import com.alerts.Week3Logic_StrategyPattern.BloodPressureCriticalAlert;
 import com.data_management.PatientRecord;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

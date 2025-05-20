@@ -1,4 +1,4 @@
-package com.alerts.Week3Logic;
+package com.alerts.Week3Logic_StrategyPattern;
 
 public enum AlertType {
     BLOOD_PRESSURE_TREND,

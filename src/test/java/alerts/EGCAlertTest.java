@@ -1,6 +1,6 @@
 package alerts;
 import com.alerts.Alert;
-import com.alerts.Week3Logic.EGCAlert;
+import com.alerts.Week3Logic_StrategyPattern.EGCAlert;
 import com.data_management.PatientRecord;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.alerts.Week3Logic.AlertType.ECG_ABNORMALITY;
+import static com.alerts.Week3Logic_StrategyPattern.AlertType.ECG_ABNORMALITY;
 
 public class EGCAlertTest {
 

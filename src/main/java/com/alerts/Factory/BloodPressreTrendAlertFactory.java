@@ -2,7 +2,7 @@ package com.alerts.Factory;
 
 import com.alerts.Alert;
 
-import static com.alerts.Week3Logic.AlertType.BLOOD_PRESSURE_TREND;
+import static com.alerts.Week3Logic_StrategyPattern.AlertType.BLOOD_PRESSURE_TREND;
 
 public class BloodPressreTrendAlertFactory extends AlertFactory{
     @Override

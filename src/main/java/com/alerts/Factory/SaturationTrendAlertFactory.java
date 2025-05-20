@@ -2,7 +2,7 @@ package com.alerts.Factory;
 
 import com.alerts.Alert;
 
-import static com.alerts.Week3Logic.AlertType.OXYGEN_SATURATION_RAPID_DROP;
+import static com.alerts.Week3Logic_StrategyPattern.AlertType.OXYGEN_SATURATION_RAPID_DROP;
 
 public class SaturationTrendAlertFactory extends AlertFactory{
     @Override

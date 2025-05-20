@@ -2,7 +2,7 @@ package com.alerts.Factory;
 
 import com.alerts.Alert;
 
-import static com.alerts.Week3Logic.AlertType.OXYGEN_SATURATION_LOW;
+import static com.alerts.Week3Logic_StrategyPattern.AlertType.OXYGEN_SATURATION_LOW;
 
 public class BloodSaturationCriticalAlertFactory extends AlertFactory{
 

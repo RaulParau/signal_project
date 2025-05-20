@@ -2,7 +2,7 @@ package com.alerts.Factory;
 
 import com.alerts.Alert;
 
-import static com.alerts.Week3Logic.AlertType.ECG_ABNORMALITY;
+import static com.alerts.Week3Logic_StrategyPattern.AlertType.ECG_ABNORMALITY;
 
 public class ECGAlertFactory extends AlertFactory{
     @Override

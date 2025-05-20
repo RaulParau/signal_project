@@ -1,7 +1,7 @@
 package alerts;
 
 import com.alerts.Alert;
-import com.alerts.Week3Logic.HypotensiveHypoxemiaAlert;
+import com.alerts.Week3Logic_StrategyPattern.HypotensiveHypoxemiaAlert;
 import com.data_management.PatientRecord;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.alerts.Week3Logic.AlertType.HYPOTENSIVE_HYPOXEMIA;
+import static com.alerts.Week3Logic_StrategyPattern.AlertType.HYPOTENSIVE_HYPOXEMIA;
 
 public class HypotensiveHypoxemiaAlertTest {
 

@@ -1,9 +1,10 @@
 package com.alerts;
 
-import com.alerts.Week3Logic.AlertType;
+import com.alerts.Alert_Types.AlertInterface;
+import com.alerts.Week3Logic_StrategyPattern.AlertType;
 
 // Represents an alert
-public class Alert {
+public class Alert implements AlertInterface {
     private String patientId;
     private String condition;
     private long timestamp;
@@ -16,9 +17,7 @@ public class Alert {
         this.alertType = alertType;
     }
 
-    public AlertType getAlertType() {
-        return alertType;
-    }
+    public AlertType getAlertType() {return alertType; }
 
     public String getPatientId() {
         return patientId;
