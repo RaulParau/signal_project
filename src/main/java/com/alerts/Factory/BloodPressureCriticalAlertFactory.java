@@ -4,7 +4,7 @@ import com.alerts.Alert;
 
 import static com.alerts.Week3Logic.AlertType.BLOOD_PRESSURE_CRITICAL;
 
-public class BloodPressureAlertFactory extends AlertFactory{
+public class BloodPressureCriticalAlertFactory extends AlertFactory{
 
     @Override
     public Alert createAlert(String patientId, String condition, long timestamp) {

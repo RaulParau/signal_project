@@ -2,6 +2,8 @@ package com.alerts.Week3Logic;
 
 
 import com.alerts.Alert;
+import com.alerts.Factory.AlertFactory;
+import com.alerts.Factory.BloodPressureCriticalAlertFactory;
 import com.data_management.PatientRecord;
 
 import java.util.List;
@@ -31,35 +33,28 @@ public class BloodPressureCriticalAlert implements AlertCondition {
 
             if ("SystolicPressure".equals(type)) {
                 if (value > 180) {
-                    return new Alert(
-                            Integer.toString(record.getPatientId()),
+                    AlertFactory factory = new BloodPressureCriticalAlertFactory();
+                    return factory.createAlert(Integer.toString(record.getPatientId()),
                             "Systolic blood pressure too high",
-                            record.getTimestamp(),
-                            AlertType.BLOOD_PRESSURE_CRITICAL
-                    );
+                            record.getTimestamp());
+
                 } else if (value < 90) {
-                    return new Alert(
-                            Integer.toString(record.getPatientId()),
+                    AlertFactory factory = new BloodPressureCriticalAlertFactory();
+                    return factory.createAlert(Integer.toString(record.getPatientId()),
                             "Systolic blood pressure too low",
-                            record.getTimestamp(),
-                            AlertType.BLOOD_PRESSURE_CRITICAL
-                    );
+                            record.getTimestamp());
                 }
             } else if ("DiastolicPressure".equals(type)) {
                 if (value > 120) {
-                    return new Alert(
-                            Integer.toString(record.getPatientId()),
+                    AlertFactory factory = new BloodPressureCriticalAlertFactory();
+                    return factory.createAlert(Integer.toString(record.getPatientId()),
                             "Diastolic blood pressure too high",
-                            record.getTimestamp(),
-                            AlertType.BLOOD_PRESSURE_CRITICAL
-                    );
+                            record.getTimestamp());
                 } else if (value < 60) {
-                    return new Alert(
-                            Integer.toString(record.getPatientId()),
+                    AlertFactory factory = new BloodPressureCriticalAlertFactory();
+                    return factory.createAlert(Integer.toString(record.getPatientId()),
                             "Diastolic blood pressure too low",
-                            record.getTimestamp(),
-                            AlertType.BLOOD_PRESSURE_CRITICAL
-                    );
+                            record.getTimestamp());
                 }
             }
         }

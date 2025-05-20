@@ -1,6 +1,8 @@
 package com.alerts.Week3Logic;
 
 import com.alerts.Alert;
+import com.alerts.Factory.AlertFactory;
+import com.alerts.Factory.BloodPressreTrendAlertFactory;
 import com.data_management.PatientRecord;
 
 import java.util.Comparator;
@@ -41,29 +43,29 @@ public class BloodPressureTrendAlert implements AlertCondition {
                 .collect(Collectors.toList());
 
         if(checkTrend(systolic, true)){
-            return new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
+            AlertFactory factory = new BloodPressreTrendAlertFactory();
+            return factory.createAlert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Systolic blood pressure trend increases too quick",
-                    patientRecord.get(systolic.size()-1).getTimestamp(),
-                    AlertType.BLOOD_PRESSURE_TREND);
+                    patientRecord.get(systolic.size()-1).getTimestamp());
         }
         else if(checkTrend(systolic, false)){
-            return new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
+            AlertFactory factory = new BloodPressreTrendAlertFactory();
+            return factory.createAlert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Systolic blood pressure trend decreases too quick",
-                    patientRecord.get(systolic.size()-1).getTimestamp(),
-                    AlertType.BLOOD_PRESSURE_TREND);
+                    patientRecord.get(systolic.size()-1).getTimestamp());
         }
 
         if(checkTrend(diastolic, true)){
-            return new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
+            AlertFactory factory = new BloodPressreTrendAlertFactory();
+            return factory.createAlert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Diastolic blood pressure trend increases too quick",
-                    patientRecord.get(diastolic.size()-1).getTimestamp(),
-                    AlertType.BLOOD_PRESSURE_TREND);
+                    patientRecord.get(diastolic.size()-1).getTimestamp());
         }
         else if(checkTrend(diastolic, false)){
-            return new Alert(Integer.toString(patientRecord.get(0).getPatientId()),
+            AlertFactory factory = new BloodPressreTrendAlertFactory();
+            return factory.createAlert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Diastolic blood pressure trend decreases too quick",
-                    patientRecord.get(diastolic.size()-1).getTimestamp(),
-                    AlertType.BLOOD_PRESSURE_TREND);
+                    patientRecord.get(diastolic.size()-1).getTimestamp());
         }
 
         return null;
