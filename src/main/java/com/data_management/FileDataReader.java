@@ -5,11 +5,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ReadData implements DataReader{
+public class FileDataReader implements DataReader{
 
     private final ConcurrentHashMap<String, String> fileMap;
 
-    public ReadData(ConcurrentHashMap<String, String> fileMap){
+    public FileDataReader(ConcurrentHashMap<String, String> fileMap){
         this.fileMap = fileMap;
     }
 
