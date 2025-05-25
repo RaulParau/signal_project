@@ -14,7 +14,7 @@ class DataStorageTest {
     @Test
     void testAddAndGetRecords() {
         // TODO Perhaps you can implement a mock data reader to mock the test data?
-        DataStorage storage = new DataStorage();
+        DataStorage storage = DataStorage.getInstance();
 
         storage.addPatientData(1, 100.0, "WhiteBloodCells", 1714376789050L);
         storage.addPatientData(1, 200.0, "WhiteBloodCells", 1714376789051L);
@@ -26,7 +26,7 @@ class DataStorageTest {
 
     @Test
     void testGetAllPatient(){
-        DataStorage storage = new DataStorage();
+        DataStorage storage = DataStorage.getInstance();
 
         storage.addPatientData(1, 99, "Saturation", 1000L);
         storage.addPatientData(2, 120, "SystolicPressure", 2000L);
@@ -37,7 +37,7 @@ class DataStorageTest {
 
     @Test
     void testGetAllRecordsInTimeframe(){
-        DataStorage storage = new DataStorage();
+        DataStorage storage = DataStorage.getInstance();
 
         storage.addPatientData(1, 99, "Saturation", 1000L);
         storage.addPatientData(1, 120, "SystolicPressure", 4000L);
@@ -51,7 +51,7 @@ class DataStorageTest {
 
     @Test
     void testReturnsNoRecordForUnknownPatient(){
-        DataStorage storage = new DataStorage();
+        DataStorage storage = DataStorage.getInstance();
         List<PatientRecord> records =  storage.getRecords(90, 0, 100L);
         assertTrue(records.isEmpty());
     }
