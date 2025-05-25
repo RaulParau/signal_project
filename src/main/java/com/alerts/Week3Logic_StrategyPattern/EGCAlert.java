@@ -47,7 +47,7 @@ public class EGCAlert implements AlertCondition {
 
                 if(average > 0 && value > THRESHOLD * average){
                     AlertFactory factory = new ECGAlertFactory();
-                    factory.createAlert(Integer.toString(record.getPatientId()),
+                    return factory.createAlert(Integer.toString(record.getPatientId()),
                             "Abnormal ECG Data",
                             record.getTimestamp());
                 }

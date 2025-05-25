@@ -40,17 +40,14 @@ public class AlertGeneratorTest {
         Mockito.when(mockDataStorage.getRecords(Mockito.eq(1), Mockito.anyLong(), Mockito.anyLong()))
                 .thenReturn(mockRecords);
 
-        // Add mock AlertCondition
         AlertCondition mockCondition = Mockito.mock(AlertCondition.class);
         Alert mockAlert = new Alert("1", "Saturation too low", 12345, AlertType.BLOOD_PRESSURE_CRITICAL);
         Mockito.when(mockCondition.checkCondition(mockRecords)).thenReturn(mockAlert);
         alertGenerator.registerAlertCondition(mockCondition);
 
-        // Call method under test
-        Patient patient = new Patient(1); // Make sure this matches the patientId used above
+        Patient patient = new Patient(1);
         alertGenerator.evaluateData(patient);
 
-        // Now assert the triggered alerts
         List<Alert> alerts = alertGenerator.getTriggeredAlerts();
 
         assertEquals(1, alerts.size(), "Exactly one alert should have been triggered");
