@@ -55,4 +55,52 @@ class DataStorageTest {
         List<PatientRecord> records =  storage.getRecords(90, 0, 100L);
         assertTrue(records.isEmpty());
     }
+
+    @Test
+    void testGetAllPatientsUniqueness() {
+        DataStorage storage = DataStorage.getInstance();
+
+        storage.addPatientData(6, 99.0, "Saturation", 1000L);
+        storage.addPatientData(6, 101.0, "Saturation", 2000L);
+
+        List<Patient> patients = storage.getAllPatients();
+        long count = patients.stream().filter(p -> p.getPatientId() == 6).count();
+        assertEquals(1, count); // Should not duplicate patient entries
+    }
+
+    @Test
+    void testDifferentRecordTypes() {
+        DataStorage storage = DataStorage.getInstance();
+
+        storage.addPatientData(5, 120.0, "SystolicPressure", 1000L);
+        storage.addPatientData(5, 80.0, "DiastolicPressure", 2000L);
+
+        List<PatientRecord> records = storage.getRecords(5, 0, 3000L);
+        assertEquals(2, records.size());
+        assertEquals("SystolicPressure", records.get(0).getRecordType());
+        assertEquals("DiastolicPressure", records.get(1).getRecordType());
+    }
+
+    @Test
+    void testRecordsOutsideTimeRange() {
+        DataStorage storage = DataStorage.getInstance();
+
+        storage.addPatientData(4, 98.0, "Saturation", 5000L);
+
+        List<PatientRecord> records = storage.getRecords(4, 1000L, 4000L);
+        assertTrue(records.isEmpty());
+    }
+
+    @Test
+    void testAddMultipleRecordsToSamePatient() {
+        DataStorage storage = DataStorage.getInstance();
+
+        storage.addPatientData(3, 80.0, "HeartRate", 1000L);
+        storage.addPatientData(3, 85.0, "HeartRate", 2000L);
+
+        List<PatientRecord> records = storage.getRecords(3, 0, 3000L);
+        assertEquals(2, records.size());
+    }
+
+
 }
