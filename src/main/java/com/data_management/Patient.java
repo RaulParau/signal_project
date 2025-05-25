@@ -1,6 +1,7 @@
 package com.data_management;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
  */
 public class Patient {
     private int patientId;
-    private List<PatientRecord> patientRecords;
+    private final List<PatientRecord> patientRecords;
 
     /**
      * Constructs a new Patient with a specified ID.
@@ -21,7 +22,8 @@ public class Patient {
      */
     public Patient(int patientId) {
         this.patientId = patientId;
-        this.patientRecords = new ArrayList<>();
+        //A synchronized list is used to allow for real time data collection
+        this.patientRecords = Collections.synchronizedList(new ArrayList<>());
     }
 
     /**
@@ -54,10 +56,11 @@ public class Patient {
     //I had to modify this method in order to create my jar file as it caused compilation errors
     public List<PatientRecord> getRecords(long startTime, long endTime) {
         List<PatientRecord> records = new ArrayList<>();
-        for (PatientRecord record : patientRecords) {
-            // Check if the record's timestamp falls within the specified range
-            if (record.getTimestamp() >= startTime && record.getTimestamp() <= endTime) {
-                records.add(record);
+        synchronized (patientRecords) {  // this block is needed when iterating over a synchronized list
+            for (PatientRecord record : patientRecords) {
+                if (record.getTimestamp() >= startTime && record.getTimestamp() <= endTime) {
+                    records.add(record);
+                }
             }
         }
         return records;

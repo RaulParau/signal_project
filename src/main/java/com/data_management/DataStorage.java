@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 import com.alerts.AlertGenerator;
 
 /**
@@ -15,14 +17,14 @@ import com.alerts.AlertGenerator;
 public class DataStorage {
     private static DataStorage instance;
 
-    private Map<Integer, Patient> patientMap; // Stores patient objects indexed by their unique patient ID.
+    private final ConcurrentHashMap<Integer, Patient> patientMap; // Stores patient objects indexed by their unique patient ID.
 
     /**
      * Private constructor to prevent instantiation from other classes.
      * Initializes the underlying storage structure.
      */
     private DataStorage() {
-        this.patientMap = new HashMap<>();
+        this.patientMap = new ConcurrentHashMap<>();
     }
 
     /**
@@ -52,11 +54,7 @@ public class DataStorage {
      *                         milliseconds since the Unix epoch
      */
     public void addPatientData(int patientId, double measurementValue, String recordType, long timestamp) {
-        Patient patient = patientMap.get(patientId);
-        if (patient == null) {
-            patient = new Patient(patientId);
-            patientMap.put(patientId, patient);
-        }
+        Patient patient = patientMap.computeIfAbsent(patientId, Patient::new);
         patient.addRecord(measurementValue, recordType, timestamp);
     }
 
@@ -89,6 +87,19 @@ public class DataStorage {
     public List<Patient> getAllPatients() {
         return new ArrayList<>(patientMap.values());
     }
+
+    public Patient getPatient(int patientId) {
+        return patientMap.get(patientId);
+    }
+
+    /**
+     * Clears all patient data from the storage.
+     * Useful for testing or resetting the system.
+     */
+    public void clear() {
+        patientMap.clear();
+    }
+
 
     /**
      * The main method for the DataStorage class.

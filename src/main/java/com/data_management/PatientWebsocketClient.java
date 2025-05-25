@@ -22,13 +22,17 @@ public class PatientWebsocketClient extends WebSocketClient {
     @Override
     public void onMessage(String s) {
         try{
-            String[] parts = s.split(",");
-            int patientId = Integer.parseInt(parts[0].trim());
-            long timestamp = Long.parseLong(parts[1].trim());
-            String recordType = parts[2].trim();
-            double measurementValue =Double.parseDouble(parts[3].trim());
 
-            dataStorage.addPatientData(patientId, measurementValue, recordType, timestamp);
+            String[] parts = s.split(",");
+            if(parts.length == 4){
+                int patientId = Integer.parseInt(parts[0].trim());
+                long timestamp = Long.parseLong(parts[1].trim());
+                String recordType = parts[2].trim();
+                double measurementValue =Double.parseDouble(parts[3].trim());
+
+                dataStorage.addPatientData(patientId, measurementValue, recordType, timestamp);
+
+            }
         } catch (Exception e){
             System.out.println("Error parsing message: " + s);
             e.printStackTrace();

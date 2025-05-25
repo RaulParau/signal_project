@@ -100,5 +100,9 @@ public class AlertGenerator {
         return triggeredAlerts;
     }
 
+    //This method is just used for testing
+    public void clearTriggeredAlerts() {
+        triggeredAlerts.clear();
+    }
 
 }
