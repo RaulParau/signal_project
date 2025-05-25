@@ -1,4 +1,4 @@
-package alerts;
+package alerts_week3;
 import com.alerts.Alert;
 import com.alerts.Week3Logic_StrategyPattern.EGCAlert;
 import com.data_management.PatientRecord;
