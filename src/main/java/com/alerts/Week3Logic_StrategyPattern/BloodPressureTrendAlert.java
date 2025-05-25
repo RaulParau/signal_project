@@ -2,7 +2,7 @@ package com.alerts.Week3Logic_StrategyPattern;
 
 import com.alerts.Alert;
 import com.alerts.Factory.AlertFactory;
-import com.alerts.Factory.BloodPressreTrendAlertFactory;
+import com.alerts.Factory.BloodPressureTrendAlertFactory;
 import com.data_management.PatientRecord;
 
 import java.util.Comparator;
@@ -43,26 +43,26 @@ public class BloodPressureTrendAlert implements AlertCondition {
                 .collect(Collectors.toList());
 
         if(checkTrend(systolic, true)){
-            AlertFactory factory = new BloodPressreTrendAlertFactory();
+            AlertFactory factory = new BloodPressureTrendAlertFactory();
             return factory.createAlert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Systolic blood pressure trend increases too quick",
                     patientRecord.get(systolic.size()-1).getTimestamp());
         }
         else if(checkTrend(systolic, false)){
-            AlertFactory factory = new BloodPressreTrendAlertFactory();
+            AlertFactory factory = new BloodPressureTrendAlertFactory();
             return factory.createAlert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Systolic blood pressure trend decreases too quick",
                     patientRecord.get(systolic.size()-1).getTimestamp());
         }
 
         if(checkTrend(diastolic, true)){
-            AlertFactory factory = new BloodPressreTrendAlertFactory();
+            AlertFactory factory = new BloodPressureTrendAlertFactory();
             return factory.createAlert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Diastolic blood pressure trend increases too quick",
                     patientRecord.get(diastolic.size()-1).getTimestamp());
         }
         else if(checkTrend(diastolic, false)){
-            AlertFactory factory = new BloodPressreTrendAlertFactory();
+            AlertFactory factory = new BloodPressureTrendAlertFactory();
             return factory.createAlert(Integer.toString(patientRecord.get(0).getPatientId()),
                     "Diastolic blood pressure trend decreases too quick",
                     patientRecord.get(diastolic.size()-1).getTimestamp());

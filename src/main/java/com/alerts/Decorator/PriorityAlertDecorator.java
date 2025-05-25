@@ -7,7 +7,7 @@ public class PriorityAlertDecorator extends AlertDecorator{
 
     private int priority;
 
-    public PriorityAlertDecorator(AlertInterface decoratedAlert, int priority) {
+    public PriorityAlertDecorator(Alert decoratedAlert, int priority) {
         super(decoratedAlert);
         this.priority = priority;
     }
