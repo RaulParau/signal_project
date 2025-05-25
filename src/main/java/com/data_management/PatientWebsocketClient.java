@@ -7,7 +7,7 @@ import java.net.URI;
 
 public class PatientWebsocketClient extends WebSocketClient {
 
-    private DataStorage dataStorage;
+    private final DataStorage dataStorage;
 
     public PatientWebsocketClient(URI serverUri, DataStorage dataStorage) {
         super(serverUri);
@@ -22,18 +22,25 @@ public class PatientWebsocketClient extends WebSocketClient {
     @Override
     public void onMessage(String s) {
         try{
-
+            // The message will be split into parts so it can be read.
+            // The format of the message will be: patientId, measurementValue, recordType, timestamp
             String[] parts = s.split(",");
+
+            // Basic validation that the message is long enough
             if(parts.length == 4){
+
+                //parse the parts
                 int patientId = Integer.parseInt(parts[0].trim());
                 long timestamp = Long.parseLong(parts[1].trim());
                 String recordType = parts[2].trim();
-                double measurementValue =Double.parseDouble(parts[3].trim());
+                double measurementValue = Double.parseDouble(parts[3].trim());
 
+                // add the parsed data to the data storage in the correct order
                 dataStorage.addPatientData(patientId, measurementValue, recordType, timestamp);
 
             }
         } catch (Exception e){
+            // Catch parsing exceptions or runtime errors
             System.out.println("Error parsing message: " + s);
             e.printStackTrace();
         }
@@ -47,6 +54,6 @@ public class PatientWebsocketClient extends WebSocketClient {
     @Override
     public void onError(Exception e) {
         System.out.println("Error connecting to websocket");
-        e.printStackTrace();
+        e.printStackTrace(); //print details of the error for debugging.
     }
 }
