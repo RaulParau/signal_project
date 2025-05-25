@@ -1,5 +1,6 @@
 package com.alerts;
 
+import com.alerts.Alert_Types.AlertInterface;
 import com.alerts.Week3Logic_StrategyPattern.AlertCondition;
 import com.alerts.Week3Logic_StrategyPattern.AlertType;
 import com.alerts.Week3Logic_StrategyPattern.HypotensiveHypoxemiaAlert;
@@ -86,7 +87,7 @@ public class AlertGenerator {
      *
      * @param alert the alert object containing details about the alert condition
      */
-    private void triggerAlert(Alert alert) {
+    public void triggerAlert(Alert alert) {
         triggeredAlerts.add(alert);
 
         System.out.println("Alert " + alert.getAlertType() +
